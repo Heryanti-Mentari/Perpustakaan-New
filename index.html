@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perpustakaan Online</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Perpustakaan Online Pribadi</h1>
+    </header>
+    <main>
+        <form id="uploadForm" enctype="multipart/form-data">
+            <input type="file" name="file" id="file">
+            <button type="submit">Tambahkan Buku</button>
+        </form>
+        <ul id="bookList">
+            {% for book in books %}
+            <li><a href="{{ url_for('read_book', filename=book) }}">{{ book }}</a></li>
+            {% endfor %}
+        </ul>
+    </main>
+    <footer>
+        <p>© 2024 Heryanti Rima Mentari</p>
+    </footer>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
